@@ -1,0 +1,1141 @@
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Milwood Market</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    /* ─── Reset & Variables ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:   #F5F0E8;
+      --tan:     #E8DCC8;
+      --brown:   #6B4C2A;
+      --rust:    #C4521A;
+      --green:   #3A5C3B;
+      --sage:    #7A9E7E;
+      --gold:    #D4A843;
+      --charcoal:#2C2416;
+      --white:   #FDFAF4;
+
+      --ff-display: 'Playfair Display', Georgia, serif;
+      --ff-body:    'Lato', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--ff-body);
+      background-color: var(--cream);
+      color: var(--charcoal);
+      overflow-x: hidden;
+    }
+
+    /* ─── Nav ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2.5rem;
+      background: rgba(245,240,232,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--tan);
+    }
+
+    .nav-logo {
+      font-family: var(--ff-display);
+      font-weight: 900;
+      font-size: 1.3rem;
+      color: var(--brown);
+      letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--ff-body);
+      font-weight: 700;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--brown);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--rust); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 26px; height: 2px;
+      background: var(--brown);
+      transition: all 0.3s;
+    }
+
+    /* ─── Hero ─── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      position: relative;
+      background-color: var(--green);
+      background-image: url('https://images.unsplash.com/photo-1506484381205-f7945653044d?w=1800&auto=format&fit=crop&q=80');
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(20, 38, 21, 0.62) 0%,
+        rgba(20, 38, 21, 0.45) 60%,
+        rgba(20, 38, 21, 0.58) 100%
+      );
+      z-index: 1;
+    }
+
+    #hero::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: -5%; right: -5%;
+      height: 120px;
+      background: var(--cream);
+      border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+      z-index: 2;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-family: var(--ff-body);
+      font-weight: 700;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      border: 1px solid rgba(212,168,67,0.5);
+      padding: 0.4rem 1.2rem;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 2;
+      animation: fadeDown 0.8s ease both;
+    }
+
+    .hero-title {
+      font-family: var(--ff-display);
+      font-weight: 900;
+      font-size: clamp(3.5rem, 10vw, 8rem);
+      line-height: 0.95;
+      color: var(--white);
+      position: relative;
+      z-index: 2;
+      animation: fadeDown 0.9s 0.1s ease both;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-tagline {
+      font-family: var(--ff-body);
+      font-weight: 300;
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      letter-spacing: 0.08em;
+      color: rgba(253,250,244,0.85);
+      margin-top: 1.2rem;
+      position: relative;
+      z-index: 2;
+      animation: fadeDown 1s 0.2s ease both;
+    }
+
+    .hero-tagline span {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .hero-cta {
+      margin-top: 2.5rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+      animation: fadeDown 1.1s 0.3s ease both;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      font-family: var(--ff-body);
+      font-weight: 700;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.25s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--rust);
+      color: var(--white);
+    }
+    .btn-primary:hover { background: #a8420f; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(196,82,26,0.4); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1.5px solid rgba(253,250,244,0.6);
+    }
+    .btn-outline:hover { background: rgba(253,250,244,0.1); transform: translateY(-2px); }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── Section Base ─── */
+    section { padding: 6rem 2rem; }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: var(--ff-body);
+      font-weight: 700;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--rust);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-family: var(--ff-display);
+      font-weight: 900;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      line-height: 1.05;
+      color: var(--charcoal);
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--green);
+    }
+
+    .divider {
+      width: 56px; height: 3px;
+      background: var(--gold);
+      margin: 1.2rem 0 2rem;
+    }
+
+    /* ─── About ─── */
+    #about { background: var(--cream); }
+
+    .about-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+
+    .about-text {
+      max-width: 720px;
+    }
+
+    .about-text p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #4A3C28;
+      margin-bottom: 1.2rem;
+    }
+
+    .about-pillars {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
+      align-items: stretch;
+      grid-auto-rows: 1fr;
+    }
+
+    .pillar {
+      background: var(--white);
+      border: 1px solid var(--tan);
+      border-top: 3px solid var(--green);
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .about-pillars .pillar {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .pillar-img {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      border-radius: 12px;
+    }
+
+    .pillar-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(30, 50, 30, 0.45);
+      border-radius: 12px;
+    }
+
+    .pillar:hover .pillar-img {
+      opacity: 1;
+    }
+
+    .pillar-body {
+      padding: 1rem;
+      position: relative;
+      z-index: 1;
+      transition: color 0.4s ease;
+      text-align: left;
+    }
+
+    .pillar:hover .pillar-body h4 { color: var(--white); }
+    .pillar:hover .pillar-body p  { color: rgba(255,255,255,0.85); }
+
+    .pillar h4 {
+      font-family: var(--ff-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--brown);
+      margin-bottom: 0.3rem;
+      transition: color 0.4s ease;
+    }
+
+    .pillar p {
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: #6B5A42;
+      transition: color 0.4s ease;
+    }
+
+    /* ─── Dates ─── */
+    .vendor-info-bar {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .vendor-info-label {
+      font-family: var(--ff-body);
+      font-size: 1rem;
+      font-weight: 700;
+      color: rgba(253,250,244,0.75);
+      white-space: nowrap;
+    }
+
+    .vendor-info-links {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .vendor-info-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--ff-body);
+      font-weight: 200;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--white);
+      text-decoration: none;
+      padding: 0.4rem 1rem;
+      border: 1.5px solid rgba(255,255,255,0.25);
+      border-radius: 50px;
+      transition: all 0.25s;
+    }
+
+    .vendor-info-link:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    #dates { background: var(--charcoal); }
+
+    #dates .section-label { color: var(--gold); }
+    #dates .section-title { color: var(--white); }
+    #dates .section-title em { color: var(--sage); }
+    #dates .divider { background: var(--rust); }
+
+    .dates-intro {
+      font-size: 1rem;
+      color: rgba(253,250,244,0.75);
+      max-width: 620px;
+      line-height: 1.7;
+      margin-bottom: 3rem;
+    }
+
+    .dates-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .date-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-left: 4px solid var(--gold);
+      padding: 1.5rem;
+      border-radius: 12px;
+      transition: background 0.25s, transform 0.25s;
+    }
+
+    .date-card:hover {
+      background: rgba(255,255,255,0.09);
+      transform: translateY(-3px);
+    }
+
+    .date-card.featured {
+      border-left-color: var(--rust);
+      background: rgba(196,82,26,0.1);
+    }
+
+    .date-card.mid {
+      border-left-color: #C8824A;
+      background: rgba(196,130,60,0.08);
+    }
+
+    .date-card.mid .date-day { color: #C8824A; }
+
+    .date-tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding: 0.2rem 0.6rem;
+      border-radius: 50px;
+      margin-bottom: 0.8rem;
+    }
+
+    .date-tag.opening    { background: rgba(212,168,67,0.2); color: var(--gold); }
+    .date-tag.summer     { background: rgba(122,158,126,0.2); color: var(--sage); }
+    .date-tag.midsummer  { background: rgba(196,130,60,0.2); color: #C8824A; }
+    .date-tag.holiday    { background: rgba(196,82,26,0.2); color: #E07A52; }
+
+    .date-month {
+      font-family: var(--ff-display);
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .date-day {
+      font-family: var(--ff-display);
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+      margin: 0.1rem 0;
+    }
+
+    .date-card.featured .date-day { color: #E07A52; }
+
+    .date-info {
+      font-size: 0.85rem;
+      color: rgba(253,250,244,0.65);
+      line-height: 1.5;
+      margin-top: 0.5rem;
+    }
+
+    .date-links {
+      display: flex;
+      gap: 0.8rem;
+      margin-top: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .date-link {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: color 0.2s;
+    }
+
+    .date-link:hover { color: var(--white); }
+    .date-link::after { content: '→'; }
+
+    .date-card.featured .date-link { color: #E07A52; }
+    .date-card.featured .date-link:hover { color: var(--white); }
+
+    .dates-cta-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .dates-cta-link {
+      display: inline-block;
+      font-family: var(--ff-body);
+      font-weight: 700;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--white);
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      border: 1.5px solid rgba(255,255,255,0.25);
+      border-radius: 4px;
+      transition: all 0.25s;
+    }
+
+    .dates-cta-link:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    /* ─── Info Strip ─── */
+    .info-strip {
+      margin-top: 3.5rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 4px;
+      padding: 2rem 2.5rem;
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .info-strip-title {
+      font-family: var(--ff-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .info-strip-text {
+      font-size: 0.9rem;
+      color: rgba(253,250,244,0.65);
+      line-height: 1.6;
+      flex: 1;
+      min-width: 220px;
+    }
+
+    .info-strip-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      min-width: 180px;
+      align-self: flex-start;
+      padding-top: 2.1rem;
+    }
+
+    .strip-link {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--sage);
+      text-decoration: none;
+    }
+
+    .strip-link:hover { color: var(--sage); cursor: default; }
+    .location-link:hover { color: var(--white) !important; cursor: pointer; }
+
+    /* ─── Contact ─── */
+    #contact { background: var(--tan); }
+
+    #contact .section-title em { color: var(--rust); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4rem;
+      margin-top: 3rem;
+      align-items: start;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact-info h3 {
+      font-family: var(--ff-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--brown);
+      margin-bottom: 1rem;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 0.9rem;
+      align-items: flex-start;
+      margin-bottom: 1.4rem;
+    }
+
+    .contact-icon { font-size: 1.3rem; margin-top: 0.1rem; flex-shrink: 0; }
+
+    .contact-item-text {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #4A3C28;
+    }
+
+    .contact-item-text strong {
+      display: block;
+      font-weight: 700;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--brown);
+      margin-bottom: 0.2rem;
+    }
+
+    .contact-item-text a { color: var(--rust); text-decoration: none; }
+    .contact-item-text a:hover { text-decoration: underline; }
+
+    .social-links { display: flex; gap: 0.8rem; margin-top: 1.5rem; }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px; height: 40px;
+      background: var(--white);
+      color: var(--brown);
+      border-radius: 50%;
+      text-decoration: none;
+      transition: all 0.2s;
+      font-weight: 700;
+      font-size: 0.75rem;
+    }
+
+    .social-link:hover { background: var(--green); color: var(--white); transform: translateY(-2px); }
+
+    .contact-form {
+      background: var(--white);
+      padding: 2.5rem;
+      border-radius: 4px;
+      box-shadow: 0 4px 32px rgba(107,76,42,0.1);
+    }
+
+    .contact-form h3 {
+      font-family: var(--ff-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group { margin-bottom: 1.2rem; }
+
+    .form-group label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--brown);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-family: var(--ff-body);
+      font-size: 0.95rem;
+      color: var(--charcoal);
+      background: var(--cream);
+      border: 1.5px solid var(--tan);
+      border-radius: 3px;
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--green); }
+
+    .form-group textarea { resize: vertical; min-height: 110px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .contact-form .btn-primary { width: 100%; text-align: center; margin-top: 0.5rem; }
+
+    /* ─── Footer ─── */
+    footer {
+      background: var(--charcoal);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: var(--ff-display);
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: 0.02em;
+      margin-bottom: 0.3rem;
+    }
+
+    .footer-logo em { font-style: italic; color: var(--gold); }
+
+    .footer-tagline {
+      font-size: 0.78rem;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(253,250,244,0.5);
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      list-style: none;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-nav a {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(253,250,244,0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-nav a:hover { color: var(--gold); }
+
+    .footer-copy { font-size: 0.75rem; color: rgba(253,250,244,0.3); }
+
+    /* ─── Carousel ─── */
+    #carousel {
+      background: var(--charcoal);
+      padding: 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .carousel-track-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 100%;
+    }
+
+    .carousel-slide {
+      flex: 0 0 calc(100% / 4);
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+    }
+
+    .carousel-slide img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.92);
+      transition: filter 0.3s;
+    }
+
+    .carousel-slide img:hover { filter: brightness(1); }
+
+    .carousel-btn {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      width: 52px; height: 52px;
+      background: var(--rust);
+      border: none;
+      border-radius: 50% 0 0 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, width 0.2s;
+    }
+
+    .carousel-btn:hover { background: #a8420f; width: 58px; }
+
+    .carousel-btn svg {
+      stroke: white; fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      width: 20px; height: 20px;
+    }
+
+    /* ─── Mobile ─── */
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: var(--cream);
+        border-bottom: 1px solid var(--tan);
+        flex-direction: column;
+        gap: 0;
+        padding: 0.5rem 0;
+      }
+
+      .nav-links.open { display: flex; }
+      .nav-links li a { display: block; padding: 0.9rem 2.5rem; border-bottom: 1px solid var(--tan); }
+
+      .about-grid { flex-direction: column; gap: 2rem; }
+      .about-pillars { grid-template-columns: 1fr 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .info-strip { flex-direction: column; }
+      .carousel-slide { flex: 0 0 100%; }
+      .carousel-btn { border-radius: 50%; right: 12px; }
+    }
+
+    @media (max-width: 480px) {
+      nav { padding: 1rem 1.2rem; }
+      section { padding: 4rem 1.2rem; }
+      .about-pillars { grid-template-columns: 1fr; }
+      .hero-cta { flex-direction: column; align-items: center; }
+      .contact-form { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── Nav ─── -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">Milwood Market</a>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#dates">Market Dates</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ─── Hero ─── -->
+<section id="hero">
+  <span class="hero-badge">A Community Gathering Place</span>
+  <h1 class="hero-title">Milwood<br><em>Market</em></h1>
+  <p class="hero-tagline">
+    <span>Local makers.</span> &nbsp;Local food.&nbsp; <span>Local fun.</span>
+  </p>
+  <div class="hero-cta">
+    <a href="#dates" class="btn btn-primary">View Market Dates</a>
+
+  </div>
+</section>
+
+<!-- ─── About ─── -->
+<section id="about">
+  <div class="section-inner">
+    <p class="section-label">Our Story</p>
+    <h2 class="section-title">A market rooted in<br><em>community</em></h2>
+    <div class="divider"></div>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          Milwood Market was born from a simple idea: that neighbors deserve a place to gather, discover, and celebrate the incredible talent and craft right in their own backyard. We're a neighborhood market dedicated to showcasing local artisans, farmers, food makers, and small businesses.
+        </p>
+        <p>
+          Our vendors are makers, growers, and artisans from across the greater community — each bringing something unique and handcrafted to share. From hand-thrown pottery to freshly baked bread, from heirloom produce to handmade jewelry — everything here has a story, and every story is local.
+        </p>
+        <p>
+          We believe markets are more than shopping. They're where friendships start, where kids discover something new, and where makers find their audience. Come hungry, come curious, and come ready to connect.
+        </p>
+      </div>
+
+      <div class="about-pillars">
+        <div class="pillar">
+          <div class="pillar-img" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format&fit=crop&q=80')"></div>
+          <div class="pillar-body">
+            <h4>Local Makers</h4>
+            <p>Handcrafted goods from artisans in our neighborhood.</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-img" style="background-image: url('https://images.unsplash.com/photo-1471193945509-9ad0617afabf?w=600&auto=format&fit=crop&q=80')"></div>
+          <div class="pillar-body">
+            <h4>Local Food</h4>
+            <p>Fresh produce, baked goods, and prepared foods from local farms and kitchens.</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-img" style="background-image: url('https://images.unsplash.com/photo-1507838153414-b4b713384a76?w=600&auto=format&fit=crop&q=80')"></div>
+          <div class="pillar-body">
+            <h4>Live Music</h4>
+            <p>Local musicians set the mood every market day.</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-img" style="background-image: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&auto=format&fit=crop&q=80')"></div>
+          <div class="pillar-body">
+            <h4>Family Fun</h4>
+            <p>Activities and programming for all ages, every event.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Carousel ─── -->
+<div id="carousel">
+  <div class="carousel-track-wrapper">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="carousel-slide">
+        <img src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=800&auto=format&fit=crop&q=80" alt="Fresh produce at market">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://images.unsplash.com/photo-1555400082-5cfc72793551?w=800&auto=format&fit=crop&q=80" alt="Artisan crafts">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=800&auto=format&fit=crop&q=80" alt="Farmers market stalls">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&auto=format&fit=crop&q=80" alt="Local baked goods">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://images.unsplash.com/photo-1607349913338-fca6f7fc42d0?w=800&auto=format&fit=crop&q=80" alt="Community gathering">
+      </div>
+      <div class="carousel-slide">
+        <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=800&auto=format&fit=crop&q=80" alt="Fresh flowers">
+      </div>
+    </div>
+    <button class="carousel-btn" id="carouselNext" aria-label="Next slide">
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- ─── Market Dates ─── -->
+<section id="dates">
+  <div class="section-inner">
+    <p class="section-label">2026 Season</p>
+    <h2 class="section-title">Market <em>dates</em></h2>
+    <div class="divider"></div>
+    <p class="dates-intro">
+      <strong>Milwood Market – Second Saturdays</strong><br><br>
+      Our summer markets take place on the second Saturday of each month. Vendor applications now open — stay tuned for more dates!
+    </p>
+
+    <div class="vendor-info-bar">
+      <span class="vendor-info-label">Vendor Info:</span>
+      <div class="vendor-info-links">
+        <a href="vendor-basics.html" target="_blank" class="vendor-info-link">Basics</a>
+        <a href="vendor-application.html" target="_blank" class="vendor-info-link">Application</a>
+        <a href="vendor-rules.html" target="_blank" class="vendor-info-link">Rules &amp; Terms</a>
+      </div>
+    </div>
+
+    <div class="dates-grid">
+
+      <div class="date-card featured">
+        <span class="date-tag opening">Opening Day</span>
+        <div class="date-month">May</div>
+        <div class="date-day">9</div>
+        <div class="date-info">Saturday &nbsp;·&nbsp; 10 AM – 3 PM<br>Milwood Shopping Center</div>
+        <div class="date-links">
+          <a href="vendor-application.html" target="_blank" class="date-link">Apply as Vendor</a>
+        </div>
+      </div>
+
+      <div class="date-card">
+        <span class="date-tag summer">Summer</span>
+        <div class="date-month">June</div>
+        <div class="date-day">13</div>
+        <div class="date-info">Saturday &nbsp;·&nbsp; 10 AM – 3 PM<br>Milwood Shopping Center</div>
+        <div class="date-links">
+          <a href="vendor-application.html" target="_blank" class="date-link">Apply as Vendor</a>
+        </div>
+      </div>
+
+      <div class="date-card mid">
+        <span class="date-tag midsummer">Summer</span>
+        <div class="date-month">July</div>
+        <div class="date-day">11</div>
+        <div class="date-info">Saturday &nbsp;·&nbsp; 10 AM – 3 PM<br>Milwood Shopping Center</div>
+        <div class="date-links">
+          <a href="vendor-application.html" target="_blank" class="date-link">Apply as Vendor</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Visitor Info Strip -->
+    <div class="info-strip">
+      <div style="flex: 2; min-width: 220px;">
+        <div class="info-strip-title">Visitor Information</div>
+        <p class="info-strip-text">
+          Everyone is welcome at Milwood Market — admission is always free! Leashed pets, strollers, and wagons are welcome. A fenced-in area with tables and shade is available for relaxing. We are located in the Milwood Shopping Center parking lot, adjacent to the community garden and Milwood Library. Come ready to enjoy handcrafted goods, fresh food, live music, and more.
+        </p>
+      </div>
+      <div class="info-strip-links">
+        <a href="https://maps.google.com/?q=12400+Amherst+Drive,+Austin,+TX+78727" target="_blank" class="strip-link location-link" style="align-items: flex-start;"><span class="strip-link-icon">📍</span><span><span style="font-weight:700;">Milwood Shopping Center</span><br><span style="font-weight:400;">12400 Amherst Drive</span><br><span style="font-weight:400;">Austin, TX 78727</span></span></a>
+        <div class="strip-link" style="cursor:default;"><span class="strip-link-icon">🕙</span> Market Hours: 10am – 3pm</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-inner">
+    <p class="section-label">Get In Touch</p>
+    <h2 class="section-title">We'd love to<br><em>hear from you</em></h2>
+    <div class="divider"></div>
+
+    <div class="contact-grid">
+      <div class="contact-form">
+        <h3>Say hello</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" placeholder="Jane">
+          </div>
+          <div class="form-group">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" placeholder="Smith">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="jane@example.com">
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Tell us what's on your mind…"></textarea>
+        </div>
+        <button class="btn btn-primary" onclick="alert('Thanks for reaching out! We\'ll be in touch soon.')">Send Message</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Footer ─── -->
+<footer>
+  <div class="footer-logo">Milwood <em>Market</em></div>
+  <p class="footer-tagline">Local makers &nbsp;·&nbsp; Local food &nbsp;·&nbsp; Local fun</p>
+  <ul class="footer-nav">
+    <li><a href="#about">About</a></li>
+    <li><a href="#dates">Market Dates</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="vendor-application.html" target="_blank">Vendor Application</a></li>
+    <li><a href="vendor-rules.html" target="_blank">Market Rules</a></li>
+  </ul>
+  <p class="footer-copy">© 2026 Milwood Market. All rights reserved.</p>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  const hamburger = document.getElementById('hamburger');
+  const navLinks  = document.getElementById('nav-links');
+  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+
+  // Carousel
+  const track       = document.getElementById('carouselTrack');
+  const nextBtn     = document.getElementById('carouselNext');
+  const totalSlides = 6;
+  let current = 0;
+
+  function slidesVisible() {
+    return window.innerWidth <= 768 ? 1 : 4;
+  }
+
+  function updateCarousel() {
+    const visible  = slidesVisible();
+    const maxIndex = totalSlides - visible;
+    if (current > maxIndex) current = 0;
+    const pct = (100 / visible) * current;
+    track.style.transform = `translateX(-${pct}%)`;
+  }
+
+  nextBtn.addEventListener('click', () => {
+    const visible  = slidesVisible();
+    const maxIndex = totalSlides - visible;
+    current = current >= maxIndex ? 0 : current + 1;
+    updateCarousel();
+  });
+
+  window.addEventListener('resize', updateCarousel);
+</script>
+
+</body></html>
