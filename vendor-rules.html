@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rules & Terms — Milwood Market</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream:   #F5F0E8;
+      --tan:     #E8DCC8;
+      --brown:   #6B4C2A;
+      --rust:    #C4521A;
+      --green:   #3A5C3B;
+      --gold:    #D4A843;
+      --charcoal:#2C2416;
+      --white:   #FDFAF4;
+      --ff-display: 'Playfair Display', Georgia, serif;
+      --ff-body:    'Lato', sans-serif;
+    }
+    body {
+      font-family: var(--ff-body);
+      background-color: var(--cream);
+      color: var(--charcoal);
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2.5rem;
+      background: rgba(245,240,232,0.97);
+      border-bottom: 1px solid var(--tan);
+    }
+    .nav-logo {
+      font-family: var(--ff-display);
+      font-weight: 900;
+      font-size: 1.3rem;
+      color: var(--brown);
+      text-decoration: none;
+    }
+    .nav-back {
+      font-family: var(--ff-body);
+      font-weight: 700;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--brown);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--rust); }
+    .page-header {
+      text-align: center;
+      padding: 4rem 2rem 2rem;
+    }
+    .section-label {
+      font-family: var(--ff-body);
+      font-weight: 700;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--rust);
+      margin-bottom: 0.6rem;
+    }
+    .page-title {
+      font-family: var(--ff-display);
+      font-weight: 900;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      color: var(--charcoal);
+      line-height: 1.05;
+    }
+    .page-title em { font-style: italic; color: var(--green); }
+    .divider {
+      width: 56px; height: 3px;
+      background: var(--gold);
+      margin: 1.2rem auto 1.5rem;
+    }
+    .page-intro {
+      font-size: 1rem;
+      color: #4A3C28;
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ─── Content ─── */
+    .content-wrapper {
+      max-width: 900px;
+      margin: 1.5rem auto 5rem;
+      padding: 0 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .rules-card {
+      background: var(--white);
+      border: 1px solid var(--tan);
+      border-top: 3px solid var(--green);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+
+    .rules-card h3 {
+      font-family: var(--ff-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--brown);
+      margin-bottom: 1.2rem;
+    }
+
+    .rules-card ol {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .rules-card ol li {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #4A3C28;
+      display: grid;
+      grid-template-columns: 2rem 1fr;
+      gap: 0.4rem;
+    }
+
+    .rule-num {
+      font-family: var(--ff-display);
+      font-weight: 700;
+      color: var(--gold);
+      font-size: 1rem;
+      padding-top: 0.05rem;
+    }
+
+    .cta-strip {
+      background: var(--charcoal);
+      border-radius: 12px;
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .cta-strip p {
+      font-size: 1rem;
+      color: rgba(253,250,244,0.8);
+      line-height: 1.6;
+    }
+    .cta-strip strong {
+      display: block;
+      font-family: var(--ff-display);
+      font-size: 1.2rem;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      font-family: var(--ff-body);
+      font-weight: 700;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.25s;
+      white-space: nowrap;
+    }
+    .btn-primary { background: var(--rust); color: var(--white); }
+    .btn-primary:hover { background: #a8420f; transform: translateY(-2px); }
+
+    .contact-note {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #6B5A42;
+    }
+    .contact-note a {
+      color: var(--rust);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .contact-note a:hover { text-decoration: underline; }
+
+    footer {
+      background: var(--charcoal);
+      padding: 2rem;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: var(--ff-display);
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--white);
+    }
+    .footer-logo em { font-style: italic; color: var(--gold); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="milwood-market.html" class="nav-logo">Milwood Market</a>
+  <a href="milwood-market.html" class="nav-back">← Back to Site</a>
+</nav>
+
+<div class="page-header">
+  <p class="section-label">Vendor Info</p>
+  <h1 class="page-title">Rules, Terms <em>&amp; Conditions</em></h1>
+  <div class="divider"></div>
+  <p class="page-intro">Please read all rules and terms carefully before submitting your vendor application. Vendors will be asked to acknowledge these terms as part of the application process.</p>
+</div>
+
+<div class="content-wrapper">
+
+  <div class="rules-card">
+    <h3>General Information</h3>
+    <ol>
+      <li><span class="rule-num">1.</span><span>By submitting an application, vendors agree to abide by all Milwood Market rules, terms, and local regulations. Acceptance is conditional upon compliance with these rules.</span></li>
+      <li><span class="rule-num">2.</span><span>If required, vendors must have all necessary permits, licenses, and insurance available on-site for the duration of the market event.</span></li>
+      <li><span class="rule-num">3.</span><span>Milwood Market reserves the right to revoke a vendor's approval at any time for rule violations, unsafe behavior, or failure to comply with policies.</span></li>
+    </ol>
+  </div>
+
+  <div class="rules-card">
+    <h3>Eligibility &amp; Juried Approval</h3>
+    <ol>
+      <li><span class="rule-num">4.</span><span>This event is juried to ensure a diverse and high-quality market. Applications must include a website, product photos, and/or social media handles to verify the uniqueness of items.</span></li>
+      <li><span class="rule-num">5.</span><span>Milwood Market accepts vendors selling handcrafted goods, locally made products, or food items consistent with the market's standards.</span></li>
+      <li><span class="rule-num">6.</span><span>Approval notifications will be sent via email. Submission of an application does not guarantee acceptance.</span></li>
+    </ol>
+  </div>
+
+  <div class="rules-card">
+    <h3>Booth Space &amp; Setup</h3>
+    <ol>
+      <li><span class="rule-num">7.</span><span>Standard booths are 10'x10' unless otherwise specified. Vendors must use under-table storage; all visible areas must be neat and free of clutter.</span></li>
+      <li><span class="rule-num">8.</span><span>Vendors must provide all setup materials, including canopy, tables, chairs, signage, weights (minimum 40 lbs per canopy leg), and any equipment needed. Stakes in the ground are prohibited.</span></li>
+      <li><span class="rule-num">9.</span><span>Setup begins 2 hours prior to the market. Vendors must be ready 30 minutes before opening unless prior arrangements are made.</span></li>
+      <li><span class="rule-num">10.</span><span>Vendors are responsible for transporting items to their designated space. Dollies or carts may be required, as some spaces may not be accessible by vehicle. Vehicles must be moved immediately after unloading.</span></li>
+      <li><span class="rule-num">11.</span><span>All items, including tents and canopies, must be packed before moving vehicles for loading. Vendors are expected to remain for the full market duration. If sold out, vendors may display a "Sold Out" sign and return at the end of the market for teardown.</span></li>
+    </ol>
+  </div>
+
+  <div class="rules-card">
+    <h3>Conduct &amp; Operations</h3>
+    <ol>
+      <li><span class="rule-num">12.</span><span>No soliciting is allowed. Vendors may not yell, walk around distributing samples, or otherwise interrupt other vendors or visitors.</span></li>
+      <li><span class="rule-num">13.</span><span>All signage must be neat, professional, and clearly indicate your booth type.</span></li>
+      <li><span class="rule-num">14.</span><span>Vendors must display a valid tax ID certificate when/if required.</span></li>
+      <li><span class="rule-num">15.</span><span>Vendors must provide a trash receptacle for their booth and remove all trash at teardown. Market trash bins are for public use only.</span></li>
+    </ol>
+  </div>
+
+  <div class="rules-card">
+    <h3>Fees, Payment &amp; Cancellation</h3>
+    <ol>
+      <li><span class="rule-num">16.</span><span>Booth fees are due in full within two weeks of approval. For vendors approved less than two weeks before the market, payment is due by the day before the event.</span></li>
+      <li><span class="rule-num">17.</span><span>Fees are non-refundable, except in the case of market cancellation by the organizer.</span></li>
+      <li><span class="rule-num">18.</span><span>No refunds will be issued for inclement weather or vendor cancellations. If Milwood Market cancels due to weather, the organizer will make every effort to schedule a makeup date that works with the vendor's schedule.</span></li>
+      <li><span class="rule-num">19.</span><span>Vendors who cancel three times in a calendar year may lose priority for future markets and may be declined at the organizer's discretion.</span></li>
+    </ol>
+  </div>
+
+  <div class="rules-card">
+    <h3>Parking</h3>
+    <ol>
+      <li><span class="rule-num">20.</span><span>Vendors must park in designated areas only. No parking is allowed in areas marked as restricted on vendor maps. Unauthorized vehicles may be towed at the owner's expense.</span></li>
+      <li><span class="rule-num">21.</span><span>Vendor parking maps will be provided prior to the market.</span></li>
+    </ol>
+  </div>
+
+  <div class="rules-card">
+    <h3>Insurance &amp; Liability</h3>
+    <ol>
+      <li><span class="rule-num">22.</span><span>Vendors participate at their own risk. Vendors assume full responsibility for any injury, property damage, or theft that occurs in connection with the market.</span></li>
+      <li><span class="rule-num">23.</span><span>Vendors, on behalf of themselves, their employees, agents, and assigns, release and hold harmless Milwood Market, its organizers, volunteers, sponsors, and property owners from any and all liability, claims, demands, or causes of action arising out of participation in the market, including, but not limited to, injuries, accidents, theft, or damage to property.</span></li>
+      <li><span class="rule-num">24.</span><span>Vendors agree to indemnify and defend Milwood Market and its representatives from any claims, damages, losses, or expenses (including attorney fees) resulting from their participation, products, or booth operations.</span></li>
+      <li><span class="rule-num">25.</span><span>Liability insurance is strongly recommended for all vendors. Vendors selling food, beverages, or other high-risk products must provide proof of insurance.</span></li>
+      <li><span class="rule-num">26.</span><span>Vendors are responsible for any damage caused by their tents, equipment, or products.</span></li>
+    </ol>
+  </div>
+
+  <div class="rules-card">
+    <h3>Safety &amp; Compliance</h3>
+    <ol>
+      <li><span class="rule-num">27.</span><span>All vendors must comply with safety guidelines, including securing canopies with appropriate weights and maintaining clear walkways.</span></li>
+      <li><span class="rule-num">28.</span><span>Vendors selling consumables must comply with all health and food safety regulations.</span></li>
+      <li><span class="rule-num">29.</span><span>Vendors must comply with all local, state, and federal laws, including permits, licensing, and tax obligations.</span></li>
+    </ol>
+  </div>
+
+  <div class="rules-card">
+    <h3>Market Rights</h3>
+    <ol>
+      <li><span class="rule-num">30.</span><span>Milwood Market reserves the right to refuse, relocate, or remove any vendor for rule violations, unsafe behavior, or noncompliance with laws.</span></li>
+      <li><span class="rule-num">31.</span><span>The organizer's decisions are final and binding.</span></li>
+    </ol>
+  </div>
+
+  <div class="cta-strip">
+    <div>
+      <strong>Ready to apply?</strong>
+      <p>Submit your vendor application to get started.</p>
+    </div>
+    <a href="vendor-application.html" target="_blank" class="btn btn-primary">Apply Now</a>
+  </div>
+
+  <p class="contact-note">Questions? Email us at <a href="mailto:hello@milwoodmarket.com">hello@milwoodmarket.com</a></p>
+
+</div>f
