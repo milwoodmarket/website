@@ -25,6 +25,9 @@
       color: var(--charcoal);
     }
     nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -204,8 +207,8 @@
 <body>
 
 <nav>
-  <a href="milwood-market.html" class="nav-logo">Milwood Market</a>
-  <a href="milwood-market.html" class="nav-back">← Back to Site</a>
+  <span class="nav-logo">Milwood Market</span>
+  <a href="milwood-market.html" style="font-family:var(--ff-body);font-weight:700;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--brown);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color="#C4521A"" onmouseout="this.style.color="#6B4C2A"">Go to milwoodmarket.com →</a>
 </nav>
 
 <div class="page-header">
@@ -307,7 +310,7 @@
       <strong>Ready to apply?</strong>
       <p>Submit your vendor application to get started.</p>
     </div>
-    <div style="display:flex; gap:0.8rem; flex-wrap:wrap;">
+    <div style="display:flex; gap:0.8rem; flex-wrap:wrap; align-items:center;">
       <a href="vendor-application.html" target="_blank" class="btn btn-primary">Apply Now</a>
       <a href="vendor-rules-print.html" target="_blank" class="btn" style="cursor:pointer; background: var(--white); color: var(--brown); border: 1px solid var(--tan);">🖨 Print / Save as PDF</a>
     </div>

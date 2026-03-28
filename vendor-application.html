@@ -25,6 +25,9 @@
       color: var(--charcoal);
     }
     nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -111,13 +114,25 @@
       color: var(--white);
     }
     .footer-logo em { font-style: italic; color: var(--gold); }
+    .contact-note {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #6B5A42;
+      padding-bottom: 3rem;
+    }
+    .contact-note a {
+      color: var(--rust);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .contact-note a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
 
 <nav>
-  <a href="milwood-market.html" class="nav-logo">Milwood Market</a>
-  <a href="milwood-market.html" class="nav-back">← Back to Site</a>
+  <span class="nav-logo">Milwood Market</span>
+  <a href="milwood-market.html" style="font-family:var(--ff-body);font-weight:700;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--brown);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color="#C4521A"" onmouseout="this.style.color="#6B4C2A"">Go to milwoodmarket.com →</a>
 </nav>
 
 <div class="page-header">
@@ -130,6 +145,18 @@
 <div class="form-wrapper">
   <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe6Neub9rMwrYMxaTG2fLwvSfjrkbi7PiOY0iBgTv8UKy0bSA/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 </div>
+
+<div style="text-align:center; padding: 1rem 2rem 3rem; display:flex; gap:0.8rem; justify-content:center; flex-wrap:wrap; align-items:center;">
+  <a href="vendor-basics.html" class="btn btn-outline" style="color:var(--brown); border-color:var(--tan); background:var(--white);">← Vendor Basics</a>
+  <a href="vendor-rules.html" class="btn btn-outline" style="color:var(--brown); border-color:var(--tan); background:var(--white);">Rules & Terms</a>
+</div>
+
+  <p class="contact-note">Questions? Email us at <span id="email-link"></span></p>
+  <script>
+    var e = 'hello' + '@' + 'milwoodmarket.com';
+    var el = document.getElementById('email-link');
+    el.innerHTML = '<a href="mailto:' + e + '" style="color:#C4521A;font-weight:700;text-decoration:none;">' + e + '</a>';
+  </script>
 
 <footer>
   <div class="footer-logo">Milwood <em>Market</em></div>
