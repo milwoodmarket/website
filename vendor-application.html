@@ -127,7 +127,44 @@
       font-weight: 700;
     }
     .contact-note a:hover { text-decoration: underline; }
-  </style>
+    .cta-strip {
+      background: var(--charcoal);
+      border-radius: 12px;
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      gap: 1rem;
+    }
+    .cta-strip p {
+      font-size: 1rem;
+      color: rgba(253,250,244,0.8);
+      line-height: 1.6;
+    }
+    .cta-strip strong {
+      display: block;
+      font-family: var(--ff-display);
+      font-size: 1.2rem;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      font-family: var(--ff-body);
+      font-weight: 700;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.25s;
+      white-space: nowrap;
+    }
+    .btn-primary { background: var(--rust); color: var(--white); }
+    .btn-primary:hover { background: #a8420f; transform: translateY(-2px); }
+    </style>
 </head>
 <body>
 
@@ -220,17 +257,24 @@
   </script>
 </div>
 
-<div style="text-align:center; padding: 1rem 2rem 3rem; display:flex; gap:0.8rem; justify-content:center; flex-wrap:wrap; align-items:center;">
-  <a href="vendor-basics.html" class="btn btn-outline" style="color:var(--brown); border-color:var(--tan); background:var(--white);">← Vendor Basics</a>
-  <a href="vendor-rules.html" class="btn btn-outline" style="color:var(--brown); border-color:var(--tan); background:var(--white);">Rules & Terms</a>
-</div>
-
-  <p class="contact-note">Questions? Email us at <span id="email-link"></span></p>
+<div style="max-width:900px; margin:0 auto 5rem; padding:0 2rem;">
+  <div class="cta-strip">
+    <div>
+      <strong>Have questions first?</strong>
+      <p>Browse vendor basics and our rules before you submit.</p>
+    </div>
+    <div style="display:flex; gap:0.8rem; flex-wrap:wrap; align-items:center; flex-shrink:0;">
+      <a href="vendor-basics.html" class="btn btn-primary">Vendor Basics</a>
+      <a href="vendor-rules.html" class="btn" style="background:var(--white); color:var(--brown); border:1px solid var(--tan);">Rules &amp; Terms</a>
+    </div>
+  </div>
+  <p class="contact-note" style="margin-top:1.5rem;">Questions? Email us at <span id="email-link"></span></p>
   <script>
     var e = 'hello' + '@' + 'milwoodmarket.com';
     var el = document.getElementById('email-link');
     el.innerHTML = '<a href="mailto:' + e + '" style="color:#C4521A;font-weight:700;text-decoration:none;">' + e + '</a>';
   </script>
+</div>
 
 <footer>
   <div class="footer-logo">Milwood <em>Market</em></div>
