@@ -97,7 +97,7 @@
       width: 100%;
     }
     .form-wrapper iframe {
-      width: 100%;
+      width: 99%;
       max-width: 860px;
       border: none;
       border-radius: 8px;
@@ -181,12 +181,51 @@
 </div>
 
 <div class="form-wrapper">
-  <iframe
-    aria-label='Milwood Market – Sponsor Application'
-    frameborder="0"
-    style="height:2100px;width:99%;border:none;border-radius:8px;box-shadow:0 4px 32px rgba(107,76,42,0.1);"
-    src='https://forms.zohopublic.com/hellomilwoo1/form/SponsorApplication/formperma/MYAEO0dlEquOX8ep47WwOIquazpotrIatm7DgJ2jz00'>
-  </iframe>
+  <div id="zf_div_sponsor"></div>
+  <script type="text/javascript">
+  (function() {
+    try {
+      var f = document.createElement("iframe");
+      f.src = 'https://forms.zohopublic.com/hellomilwoo1/form/SponsorApplication/formperma/MYAEO0dlEquOX8ep47WwOIquazpotrIatm7DgJ2jz00?zf_rszfm=1';
+      f.style.border = "none";
+      f.style.height = "600px";
+      f.style.width = "90vw";
+      f.style.maxWidth = "860px";
+      f.style.borderRadius = "8px";
+      f.style.boxShadow = "0 4px 32px rgba(107,76,42,0.1)";
+      f.style.transition = "height 0.4s ease";
+      f.style.overflow = "hidden";
+      f.scrolling = "no";
+      f.setAttribute("aria-label", "Milwood Market – Sponsor Application");
+      f.setAttribute("allow", "camera;");
+      f.setAttribute("scrolling", "no");
+      document.getElementById("zf_div_sponsor").appendChild(f);
+
+      window.addEventListener('message', function(event) {
+        var evntData = event.data;
+        if (evntData && evntData.constructor == String) {
+          var zf_ifrm_data = evntData.split("|");
+          if (zf_ifrm_data.length == 2 || zf_ifrm_data.length == 3) {
+            var zf_perma = zf_ifrm_data[0];
+            var zf_ifrm_ht_nw = (parseInt(zf_ifrm_data[1], 10) + 15) + "px";
+            var iframe = document.getElementById("zf_div_sponsor").getElementsByTagName("iframe")[0];
+            if ((iframe.src).indexOf('formperma') > 0 && (iframe.src).indexOf(zf_perma) > 0) {
+              var prevHeight = iframe.style.height;
+              if (zf_ifrm_data.length == 3) {
+                iframe.scrollIntoView();
+                setTimeout(function() { iframe.style.height = zf_ifrm_ht_nw; }, 500);
+              } else {
+                if (prevHeight != zf_ifrm_ht_nw) {
+                  iframe.style.height = zf_ifrm_ht_nw;
+                }
+              }
+            }
+          }
+        }
+      }, false);
+    } catch(e) {}
+  })();
+  </script>
 </div>
 
 <div style="max-width:900px; margin:0 auto 5rem; padding:0 2rem;">
@@ -196,8 +235,8 @@
       <p>Browse our sponsorship tiers and benefits before you submit.</p>
     </div>
     <div style="display:flex; gap:0.8rem; flex-wrap:wrap; align-items:center; flex-shrink:0;">
-      <a href="sponsors.html" class="btn btn-primary">Sponsor Info</a>
-      <a href="index.html" class="btn" style="background:var(--white); color:var(--brown); border:1px solid var(--tan);">Back to Home</a>
+      <a href="https://milwoodmarket.com/sponsor-tiers" class="btn btn-primary">Sponsor Info</a>
+      <a href="https://www.milwoodmarket.com" class="btn" style="background:var(--white); color:var(--brown); border:1px solid var(--tan);">Back to Home</a>
     </div>
   </div>
   <p class="contact-note" style="margin-top:1.5rem;">Questions? Email us at <span id="email-link"></span></p>
