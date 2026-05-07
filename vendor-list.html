@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>This Week's Vendors &#8212; Milwood Market</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream:   #F5F0E8;
+      --tan:     #E8DCC8;
+      --brown:   #6B4C2A;
+      --rust:    #C4521A;
+      --green:   #3A5C3B;
+      --gold:    #D4A843;
+      --charcoal:#2C2416;
+      --white:   #FDFAF4;
+      --ff-display: 'Playfair Display', Georgia, serif;
+      --ff-body:    'Lato', sans-serif;
+    }
+    body {
+      font-family: var(--ff-body);
+      background-color: var(--cream);
+      color: var(--charcoal);
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2.5rem;
+      background: rgba(245,240,232,0.97);
+      border-bottom: 1px solid var(--tan);
+    }
+    .nav-logo {
+      font-family: var(--ff-display);
+      font-weight: 900;
+      font-size: 1.3rem;
+      color: var(--brown);
+      text-decoration: none;
+    }
+    .page-header {
+      text-align: center;
+      padding: 4rem 2rem 2rem;
+    }
+    .section-label {
+      font-family: var(--ff-body);
+      font-weight: 700;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--rust);
+      margin-bottom: 0.6rem;
+    }
+    .page-title {
+      font-family: var(--ff-display);
+      font-weight: 900;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      color: var(--charcoal);
+      line-height: 1.05;
+    }
+    .page-title em { font-style: italic; color: var(--green); }
+    .divider {
+      width: 56px; height: 3px;
+      background: var(--gold);
+      margin: 1.2rem auto 1.5rem;
+    }
+    .page-intro {
+      font-size: 1rem;
+      color: #4A3C28;
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* Vendor grid */
+    .content-wrapper {
+      max-width: 900px;
+      margin: 2rem auto 5rem;
+      padding: 0 2rem;
+    }
+    .vendor-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .vendor-card {
+      background: var(--white);
+      border: 1px solid var(--tan);
+      border-top: 3px solid var(--green);
+      border-radius: 12px;
+      padding: 1.4rem 1.6rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .vendor-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(44,36,22,0.08);
+    }
+    .vendor-name {
+      font-family: var(--ff-display);
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--brown);
+      margin-bottom: 0.25rem;
+      line-height: 1.2;
+    }
+    .vendor-desc {
+      font-size: 0.88rem;
+      color: #4A3C28;
+      line-height: 1.5;
+      margin-bottom: 0.6rem;
+    }
+    .vendor-handle {
+      font-size: 0.8rem;
+      color: #9A8060;
+      font-weight: 700;
+    }
+    .vendor-handle a {
+      color: var(--rust);
+      text-decoration: none;
+    }
+    .vendor-handle a:hover { text-decoration: underline; }
+
+    /* Sponsor card */
+    .vendor-card.sponsor {
+      grid-column: 1 / -1;
+      background: #4c3121;
+      border: none;
+      border-top: 3px solid var(--gold);
+    }
+    .vendor-card.sponsor:hover {
+      box-shadow: 0 6px 24px rgba(44,36,22,0.22);
+    }
+    .sponsor-badge {
+      display: inline-block;
+      font-family: var(--ff-body);
+      font-weight: 700;
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #4c3121;
+      background: var(--gold);
+      border-radius: 3px;
+      padding: 0.2rem 0.55rem;
+      margin-bottom: 0.75rem;
+    }
+    .sponsor-inner {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .vendor-card.sponsor .vendor-name {
+      color: var(--white);
+      font-size: 1.3rem;
+    }
+    .vendor-card.sponsor .vendor-desc {
+      color: rgba(253,250,244,0.75);
+      margin-bottom: 0;
+    }
+    .sponsor-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      align-items: flex-end;
+      flex-shrink: 0;
+    }
+    .sponsor-links a {
+      font-family: var(--ff-body);
+      font-weight: 700;
+      font-size: 0.78rem;
+      color: var(--gold);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .sponsor-links a:hover { text-decoration: underline; }
+
+    /* Food truck cards */
+    .vendor-card.food-truck {
+      background: #EDE5D8;
+      border-top-color: var(--rust);
+    }
+    .food-truck-label {
+      font-family: var(--ff-body);
+      font-weight: 700;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--rust);
+      margin-bottom: 0.35rem;
+    }
+
+    footer {
+      background: var(--charcoal);
+      padding: 2rem;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: var(--ff-display);
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--white);
+    }
+    .footer-logo em { font-style: italic; color: var(--gold); }
+
+    @media (max-width: 600px) {
+      .vendor-grid { grid-template-columns: 1fr; }
+      .sponsor-inner { flex-direction: column; }
+      .sponsor-links { align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">Milwood Market</span>
+  <a href="https://www.milwoodmarket.com" style="font-family:var(--ff-body);font-weight:700;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--brown);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#C4521A'" onmouseout="this.style.color='#6B4C2A'">Go to milwoodmarket.com &#x2192;</a>
+</nav>
+
+<div class="page-header">
+  <p class="section-label">This Week</p>
+  <h1 class="page-title">Meet the <em>Vendors</em></h1>
+  <div class="divider"></div>
+  <p class="page-intro">Meet the makers, bakers, artists and creators joining us at the market this week.</p>
+</div>
+
+<div class="content-wrapper">
+  <div class="vendor-grid">
+
+    <!-- Market Sponsor -->
+    <div class="vendor-card sponsor">
+      <div class="sponsor-badge">&#9733; Market Sponsor</div>
+      <div class="sponsor-inner">
+        <div>
+          <div class="vendor-name">Expo Home Improvement</div>
+          <div class="vendor-desc">Home improvement</div>
+        </div>
+        <div class="sponsor-links">
+          <a href="https://www.expohomeimprovement.com/" target="_blank">expohomeimprovement.com &#x2192;</a>
+          <a href="https://www.instagram.com/_expohomeimprovement" target="_blank">@_expohomeimprovement</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vendors -->
+    <div class="vendor-card">
+      <div class="vendor-name">Ravenwood Tarot</div>
+      <div class="vendor-desc">Tarot reader</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/ravenwoodtarot" target="_blank">@ravenwoodtarot</a></div>
+    </div>
+
+    <div class="vendor-card">
+      <div class="vendor-name">L'Amandier</div>
+      <div class="vendor-desc">French pastries</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/lamandier_atx" target="_blank">@lamandier_atx</a></div>
+    </div>
+
+    <div class="vendor-card">
+      <div class="vendor-name">Good Dogs Bakehouse</div>
+      <div class="vendor-desc">Dog treats</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/gooddogsbakehouse" target="_blank">@gooddogsbakehouse</a></div>
+    </div>
+
+    <div class="vendor-card">
+      <div class="vendor-name">Sadiqhah's Sweet Cakes ATX</div>
+      <div class="vendor-desc">Cakes &amp; desserts</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/sadiqhahssweetcakes" target="_blank">@sadiqhahssweetcakes</a></div>
+    </div>
+
+    <div class="vendor-card">
+      <div class="vendor-name">Sunshine Beaded Treasures</div>
+      <div class="vendor-desc">Suncatchers, jewelry, keychains</div>
+      <div class="vendor-handle" style="color:#c8b89a;">No Instagram</div>
+    </div>
+
+    <div class="vendor-card">
+      <div class="vendor-name">A Collection of Thyme</div>
+      <div class="vendor-desc">Succulents, candles, vintage ware</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/acollectionofthyme" target="_blank">@acollectionofthyme</a></div>
+    </div>
+
+    <div class="vendor-card">
+      <div class="vendor-name">Bound &amp; Bloom</div>
+      <div class="vendor-desc">For book lovers</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/boundnbloom" target="_blank">@boundnbloom</a></div>
+    </div>
+
+    <div class="vendor-card">
+      <div class="vendor-name">Tamarack Tie Dye</div>
+      <div class="vendor-desc">Tie-dye apparel</div>
+       <div class="vendor-handle"><a href="https://www.tamaracktiedye.com" target="_blank">Tamarack Tie Dye</a></div>
+    </div>
+
+    <div class="vendor-card">
+      <div class="vendor-name">PawXchange</div>
+      <div class="vendor-desc">Community focus—Pet sitting app</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/pawxchange" target="_blank">@pawxchange</a></div>
+    </div>
+
+    <div class="vendor-card">
+      <div class="vendor-name">Fernanda Design</div>
+      <div class="vendor-desc">Clay jewelry &amp; accessories</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/fernandadesignus" target="_blank">@fernandadesignus</a></div>
+    </div>
+
+    <div class="vendor-card">
+      <div class="vendor-name">WatercolorATX</div>
+      <div class="vendor-desc">Watercolors</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/watercoloratx" target="_blank">@watercoloratx</a></div>
+    </div>
+
+    <div class="vendor-card">
+      <div class="vendor-name">Hutto Soap and Candle</div>
+      <div class="vendor-desc">Soaps &amp; candles</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/huttosoapandcandle" target="_blank">@huttosoapandcandle</a></div>
+    </div>
+
+    <div class="vendor-card">
+      <div class="vendor-name">Sam Michelle Jewelry</div>
+      <div class="vendor-desc">Handmade jewelry</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/sammichellejewelry" target="_blank">@sammichellejewelry</a></div>
+    </div>
+
+    <div class="vendor-card">
+      <div class="vendor-name">Sour Flour by JM</div>
+      <div class="vendor-desc">Sourdough</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/sourflourbyjm" target="_blank">@sourflourbyjm</a></div>
+    </div>
+
+    <div class="vendor-card">
+      <div class="vendor-name">The Tiny Flower Cart</div>
+      <div class="vendor-desc">Flowers</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/tinyflowercart" target="_blank">@tinyflowercart</a></div>
+    </div>
+
+    <div class="vendor-card">
+      <div class="vendor-name">Moodz and Vibez Boutique</div>
+      <div class="vendor-desc">Clothing &amp; college boutique</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/shopmoodzandvibez" target="_blank">@shopmoodzandvibez</a></div>
+    </div>
+
+    <div class="vendor-card">
+      <div class="vendor-name">Sticker Shock</div>
+      <div class="vendor-desc">Stickers</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/stickershockatx" target="_blank">@stickershockatx</a></div>
+    </div>
+
+    <div class="vendor-card">
+      <div class="vendor-name">Chained Up</div>
+      <div class="vendor-desc">Keychains, bag charms, bag chains, cross stitch</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/@chained.uptx" target="_blank">@chained.uptx</a></div>
+    </div>
+
+    <div class="vendor-card">
+      <div class="vendor-name">Connor Stelle Illustration</div>
+      <div class="vendor-desc">Illustrations, stickers, postcards</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/stelleraiser" target="_blank">@stelleraiser</a></div>
+    </div>
+
+    <div class="vendor-card">
+      <div class="vendor-name">Vintage Fab</div>
+      <div class="vendor-desc">Recycled fabric fashion pieces</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/Vintage.Fab" target="_blank">@Vintage.Fab</a></div>
+    </div>
+
+    <div class="vendor-card">
+      <div class="vendor-name">Golden Hour Dreams Arts &amp; Crafts</div>
+      <div class="vendor-desc">Blind date books, spa baskets, book holders</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/goldenhourdreamsartsandcrafts" target="_blank">@goldenhourdreamsartsandcrafts</a></div>
+    </div>
+
+    <div class="vendor-card">
+      <div class="vendor-name">Granny T's Creations</div>
+      <div class="vendor-desc">Crochet goods</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/grannytcreations" target="_blank">@grannytcreations</a></div>
+    </div>
+
+    <div class="vendor-card">
+      <div class="vendor-name">Patricia Degroot</div>
+      <div class="vendor-desc">Handmade jewelry, bird feeders &amp; outdoor decor</div>
+      <div class="vendor-handle" style="color:#c8b89a;">No Instagram</div>
+    </div>
+
+    <div class="vendor-card">
+      <div class="vendor-name">Tumbleweed Photo Booth</div>
+      <div class="vendor-desc">Vintage camper photo booth</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/tumbleweedbooth" target="_blank">@tumbleweedbooth</a></div>
+    </div>
+
+    <!-- Food Trucks -->
+    <div class="vendor-card food-truck">
+      <div class="food-truck-label">Food Truck</div>
+      <div class="vendor-name">Clover Coffee</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/clovercoffee.atx" target="_blank">@clovercoffee.atx</a></div>
+    </div>
+
+    <div class="vendor-card food-truck">
+      <div class="food-truck-label">Food Truck</div>
+      <div class="vendor-name">Soundra Roastery &amp; Chai</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/soundra_chai" target="_blank">@soundra_chai</a></div>
+    </div>
+
+    <div class="vendor-card food-truck">
+      <div class="food-truck-label">Food Truck</div>
+      <div class="vendor-name">Country Bird</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/countrybirdtx" target="_blank">@countrybirdtx</a></div>
+    </div>
+
+    <div class="vendor-card food-truck">
+      <div class="food-truck-label">Food Truck</div>
+      <div class="vendor-name">Rockstar Hibachi</div>
+      <div class="vendor-handle" style="color:#c8b89a;">No Instagram</div>
+    </div>
+
+    <div class="vendor-card food-truck">
+      <div class="food-truck-label">Food Truck</div>
+      <div class="vendor-name">SnoATX</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/snoatxofficial" target="_blank">@snoatxofficial</a></div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">Milwood <em>Market</em></div>
+</footer>
+
+</body>
+</html>
