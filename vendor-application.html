@@ -93,7 +93,8 @@
       display: flex;
       justify-content: center;
       padding: 1rem 0.5rem 3rem;
-      overflow: hidden;
+      overflow-x: hidden;
+      overflow-y: visible;
       width: 100%;
     }
     iframe {
@@ -177,7 +178,7 @@
   <p class="section-label">Join Us</p>
   <h1 class="page-title">Vendor <em>Application</em></h1>
   <div class="divider"></div>
-  <p class="page-intro">Ready to be part of Milwood Market? Fill out the form below and we'll be in touch.</p>
+  <p class="page-intro">Ready to be part of Milwood Market? Fill out the form below and we'll be in touch. Vendor applications are reviewed on a rolling basis.</p>
 </div>
 
 <div class="form-wrapper">
@@ -220,13 +221,13 @@
       f.style.width="90vw";
       f.style.transition="all 0.5s ease";
       f.style.overflow="hidden";
-      f.scrolling="no";
+      f.scrolling="auto";
       f.setAttribute("aria-label", 'Milwood Market – Vendor Application');
       f.setAttribute("allow","camera;");
-      f.setAttribute("scrolling","no");
+      f.setAttribute("scrolling","auto");
       var d = document.getElementById("zf_div_qPSr-pV0Rn2KcIvMqV8svA1DhrLt6LRvf2wKDYW-Wc4");
       d.appendChild(f);
-      window.addEventListener('message', function (){
+      window.addEventListener('message', function (event){
         var evntData = event.data;
         if( evntData && evntData.constructor == String ){
           var zf_ifrm_data = evntData.split("|");
