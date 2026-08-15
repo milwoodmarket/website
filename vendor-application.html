@@ -229,6 +229,7 @@
       d.appendChild(f);
       window.addEventListener('message', function (event){
         var evntData = event.data;
+        console.log('[Zoho resize message received]', evntData);
         if( evntData && evntData.constructor == String ){
           var zf_ifrm_data = evntData.split("|");
           if ( zf_ifrm_data.length == 2 || zf_ifrm_data.length == 3 ) {
