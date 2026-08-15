@@ -93,8 +93,7 @@
       display: flex;
       justify-content: center;
       padding: 1rem 0.5rem 3rem;
-      overflow-x: hidden;
-      overflow-y: visible;
+      overflow: hidden;
       width: 100%;
     }
     iframe {
@@ -187,7 +186,7 @@
   (function() {
     try{
       var f = document.createElement("iframe");
-      var ifrmSrc = 'https://forms.zohopublic.com/hellomilwoo1/form/MilwoodMarketVendorApplication/formperma/jLcRM66lulsiLZG1Ih5J5U_8vPykAEApN-GdFlRd1zE?zf_enablecamera=true';
+      var ifrmSrc = 'https://forms.zohopublic.com/hellomilwoo1/form/MilwoodMarketVendorApplication/formperma/jLcRM66lulsiLZG1Ih5J5U_8vPykAEApN-GdFlRd1zE?zf_rszfm=1&zf_enablecamera=true';
       try{
         if ( typeof ZFAdvLead != "undefined" && typeof zfutm_zfAdvLead != "undefined" ) {
           for( var prmIdx = 0 ; prmIdx < ZFAdvLead.utmPNameArr.length ; prmIdx ++ ) {
@@ -217,19 +216,18 @@
       }catch(e){}
       f.src = ifrmSrc;
       f.style.border="none";
-      f.style.height="7000px";
+      f.style.height="1200px";
       f.style.width="90vw";
       f.style.transition="all 0.5s ease";
       f.style.overflow="hidden";
-      f.scrolling="auto";
+      f.scrolling="no";
       f.setAttribute("aria-label", 'Milwood Market – Vendor Application');
       f.setAttribute("allow","camera;");
-      f.setAttribute("scrolling","auto");
+      f.setAttribute("scrolling","no");
       var d = document.getElementById("zf_div_qPSr-pV0Rn2KcIvMqV8svA1DhrLt6LRvf2wKDYW-Wc4");
       d.appendChild(f);
       window.addEventListener('message', function (event){
         var evntData = event.data;
-        console.log('[Zoho resize message received]', evntData);
         if( evntData && evntData.constructor == String ){
           var zf_ifrm_data = evntData.split("|");
           if ( zf_ifrm_data.length == 2 || zf_ifrm_data.length == 3 ) {
