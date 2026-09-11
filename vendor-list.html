@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -124,61 +124,6 @@
     }
     .vendor-handle a:hover { text-decoration: underline; }
 
-    /* Sponsor card */
-    .vendor-card.sponsor {
-      grid-column: 1 / -1;
-      background: #4c3121;
-      border: none;
-      border-top: 3px solid var(--gold);
-    }
-    .vendor-card.sponsor:hover {
-      box-shadow: 0 6px 24px rgba(44,36,22,0.22);
-    }
-    .sponsor-badge {
-      display: inline-block;
-      font-family: var(--ff-body);
-      font-weight: 700;
-      font-size: 0.62rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: #4c3121;
-      background: var(--gold);
-      border-radius: 3px;
-      padding: 0.2rem 0.55rem;
-      margin-bottom: 0.75rem;
-    }
-    .sponsor-inner {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-    .vendor-card.sponsor .vendor-name {
-      color: var(--white);
-      font-size: 1.3rem;
-    }
-    .vendor-card.sponsor .vendor-desc {
-      color: rgba(253,250,244,0.75);
-      margin-bottom: 0;
-    }
-    .sponsor-links {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      align-items: flex-end;
-      flex-shrink: 0;
-    }
-    .sponsor-links a {
-      font-family: var(--ff-body);
-      font-weight: 700;
-      font-size: 0.78rem;
-      color: var(--gold);
-      text-decoration: none;
-      white-space: nowrap;
-    }
-    .sponsor-links a:hover { text-decoration: underline; }
-
     /* Food truck cards */
     .vendor-card.food-truck {
       background: #EDE5D8;
@@ -209,8 +154,6 @@
 
     @media (max-width: 600px) {
       .vendor-grid { grid-template-columns: 1fr; }
-      .sponsor-inner { flex-direction: column; }
-      .sponsor-links { align-items: flex-start; }
     }
   </style>
 </head>
@@ -225,53 +168,43 @@
   <p class="section-label">This Week</p>
   <h1 class="page-title">Meet the <em>Vendors</em></h1>
   <div class="divider"></div>
-  <p class="page-intro">Meet the makers, bakers, artists and creators joining us at the market this week.</p>
+  <p class="page-intro">Meet the vendors joining us at the market this week!</p>
 </div>
 
 <div class="content-wrapper">
   <div class="vendor-grid">
 
-    <!-- Market Sponsor -->
-    <div class="vendor-card sponsor">
-      <div class="sponsor-badge">&#9733; Market Sponsor</div>
-      <div class="sponsor-inner">
-        <div>
-          <div class="vendor-name">Your Business Here</div>
-          <div class="vendor-desc">Interested in sponsoring Milwood Market? Reach thousands of local shoppers and support your community. Get in touch to learn about sponsorship opportunities.</div>
-        </div>
-        <div class="sponsor-links">
-          <a href="https://www.milwoodmarket.com" target="_blank">milwoodmarket.com &#x2192;</a>
-        </div>
-      </div>
-    </div>
-
    <!-- Food Trucks -->
     <div class="vendor-card food-truck">
       <div class="food-truck-label">Food Truck</div>
       <div class="vendor-name">Sunny Day Coffee</div>
+      <div class="vendor-desc">Coffee</div>
       <div class="vendor-handle"><a href="https://www.instagram.com/sunnyday.atx" target="_blank">@clovercoffee.atx</a></div>
     </div>
 
     <div class="vendor-card food-truck">
       <div class="food-truck-label">Food Truck</div>
-      <div class="vendor-name">Soundra Roastery &amp; Chai</div>
-      <div class="vendor-handle"><a href="https://www.instagram.com/soundra_chai" target="_blank">@soundra_chai</a></div>
+      <div class="vendor-name">Rooted Juice</div>
+      <div class="vendor-desc">Acai Bowls &amp; Pressed Juices</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/rootedjuiceatx" target="_blank">@rootedjuiceatx</a></div>
     </div>
 
     <div class="vendor-card food-truck">
       <div class="food-truck-label">Food Vendor</div>
       <div class="vendor-name">Que Rico Tacos</div>
+      <div class="vendor-desc">Street Tacos &amp; Gringas</div>
       <div class="vendor-handle"><a href="https://www.instagram.com/que_rico_tacos" target="_blank">@que_rico_tacos</a></div>
+    </div>
+
+    <div class="vendor-card food-truck">
+      <div class="food-truck-label">Food Vendor</div>
+      <div class="vendor-name">The Cravings Spot</div>
+      <div class="vendor-desc">Aguas Frescas</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/the_cravingsspot" target="_blank">@the_cravingsspot</a></div>
     </div>
 
 
     <!-- Vendors -->
-    <div class="vendor-card">
-      <div class="vendor-name">Ravenwood Tarot</div>
-      <div class="vendor-desc">Tarot Reader</div>
-      <div class="vendor-handle"><a href="https://www.instagram.com/ravenwoodtarot" target="_blank">@ravenwoodtarot</a></div>
-    </div>
-
     <div class="vendor-card">
       <div class="vendor-name">L'Amandier</div>
       <div class="vendor-desc">Baked Goods &amp; Pastries</div>
@@ -291,57 +224,45 @@
     </div>
 
     <div class="vendor-card">
-      <div class="vendor-name">Fernanda Design</div>
-      <div class="vendor-desc">Clay Jewelry &amp; Accessories</div>
-      <div class="vendor-handle"><a href="https://www.instagram.com/fernandadesignstudio_" target="_blank">@fernandadesignstudio_</a></div>
-    </div>
-
-    <div class="vendor-card">
       <div class="vendor-name">Hutto Soap and Candle</div>
       <div class="vendor-desc">Soaps &amp; Candles</div>
       <div class="vendor-handle"><a href="https://www.instagram.com/huttosoapandcandle" target="_blank">@huttosoapandcandle</a></div>
     </div>
 
     <div class="vendor-card">
-      <div class="vendor-name">Elizabeths</div>
-      <div class="vendor-desc">Baked Goods</div>
-      <div class="vendor-handle"><a href="https://www.instagram.com/elizabethsbaked" target="_blank">@elizabethsbaked</a></div>
+      <div class="vendor-name">Bee's Bread Co</div>
+      <div class="vendor-desc">Sourdough</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/beesbreadco" target="_blank">@beesbreadco</a></div>
     </div>
 
     <div class="vendor-card">
-      <div class="vendor-name">Limonadas ATX</div>
-      <div class="vendor-desc">Lemonades</div>
-      <div class="vendor-handle"><a href="https://www.instagram.com/antojitosgto_gro" target="_blank">@antojitosgto_gro</a></div>
+      <div class="vendor-name">The Goo Bar</div>
+      <div class="vendor-desc">Slime Bar</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/thegoobar_" target="_blank">@thegoobar_</a></div>
     </div>
 
     <div class="vendor-card">
-      <div class="vendor-name">The Freckled Octopus</div>
-      <div class="vendor-desc">Watercolors</div>
-      <div class="vendor-handle"><a href="https://www.instagram.com/the_freckledoctopus" target="_blank">@the_freckledoctopus</a></div>
+      <div class="vendor-name">Quirky Violet Mosaics</div>
+      <div class="vendor-desc">Mosaic Jewelry</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/quirkyvioletmosaics" target="_blank">@quirkyvioletmosaics</a></div>
     </div>
 
     <div class="vendor-card">
-      <div class="vendor-name">Sticker Shock</div>
-      <div class="vendor-desc">Stickers</div>
-      <div class="vendor-handle"><a href="https://www.instagram.com/stickershockatx" target="_blank">@stickershockatx</a></div>
+      <div class="vendor-name">Tamarack Tie Dye</div>
+      <div class="vendor-desc">Tie Dye Apparel</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/tamaracktiedye" target="_blank">@tamaracktiedye</a></div>
     </div>
 
     <div class="vendor-card">
-      <div class="vendor-name">Connor Stelle Illustration</div>
-      <div class="vendor-desc">Illustrations, Stickers, Postcards</div>
-      <div class="vendor-handle"><a href="https://www.instagram.com/stelleraiser" target="_blank">@stelleraiser</a></div>
+      <div class="vendor-name">Hazzard Salsa</div>
+      <div class="vendor-desc">Salsa</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/hazzardsalsa" target="_blank">@hazzardsalsa</a></div>
     </div>
 
     <div class="vendor-card">
-      <div class="vendor-name">Golden Hour Dreams Arts &amp; Crafts</div>
-      <div class="vendor-desc">Blind Date Books &amp; Spa Baskets</div>
-      <div class="vendor-handle"><a href="https://www.instagram.com/goldenhourdreamsartsandcrafts" target="_blank">@goldenhourdreamsartsandcrafts</a></div>
-    </div>
-
-    <div class="vendor-card">
-      <div class="vendor-name">Granny T's Creations</div>
-      <div class="vendor-desc">Crochet Plushies</div>
-      <div class="vendor-handle"><a href="https://www.instagram.com/grannytcreations" target="_blank">@grannytcreations</a></div>
+      <div class="vendor-name">Confident Closet by Karina</div>
+      <div class="vendor-desc">Mini Color Analysis</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/confidentclosetbykarina" target="_blank">@confidentclosetbykarina</a></div>
     </div>
 
     <div class="vendor-card">
@@ -351,9 +272,9 @@
     </div>
 
     <div class="vendor-card">
-      <div class="vendor-name">Sour Flour by JM</div>
-      <div class="vendor-desc">Sourdough</div>
-      <div class="vendor-handle"><a href="https://www.instagram.com/sourflourbyjm" target="_blank">@sourflourbyjm</a></div>
+      <div class="vendor-name">Happy Hats</div>
+      <div class="vendor-desc">Custom Patch Hats</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/happyhats_atx" target="_blank">@happyhats_atx</a></div>
     </div>
 
     <div class="vendor-card">
@@ -363,51 +284,45 @@
     </div>
 
     <div class="vendor-card">
-      <div class="vendor-name">Sunshine Beaded Treasures</div>
-      <div class="vendor-desc">Suncatchers, Jewelry, Keychains &amp; More</div>
-      <div class="vendor-handle" style="color:#c8b89a;">No Instagram</div>
+      <div class="vendor-name">Beautifully Embellished</div>
+      <div class="vendor-desc">Jewelry &amp; Custom Press-On Nails</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/beautifully.embellished" target="_blank">@beautifully.embellished</a></div>
     </div>
 
     <div class="vendor-card">
-      <div class="vendor-name">Tierra Morena</div>
-      <div class="vendor-desc">Ceramics</div>
-      <div class="vendor-handle"><a href="https://www.instagram.com/tierramorena.n" target="_blank">@tierramorena.n</a></div>
+      <div class="vendor-name">Little Bird</div>
+      <div class="vendor-desc">Bamboo Baby Clothing</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/littlebird.apparel" target="_blank">@littlebird.apparel</a></div>
     </div>
 
     <div class="vendor-card">
-      <div class="vendor-name">Psychopad</div>
-      <div class="vendor-desc">Stationary, Books &amp; Mini Plants</div>
-      <div class="vendor-handle"><a href="https://www.instagram.com/psychopadcollective" target="_blank">@psychopadcollective</a></div>
+      <div class="vendor-name">MiMadreCandleCo</div>
+      <div class="vendor-desc">Candles &amp; Linen Sprays</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/sadiqhahssweetcakes" target="_blank">@sadiqhahssweetcakes</a></div>
     </div>
 
     <div class="vendor-card">
-      <div class="vendor-name">Buzzle Boutique</div>
-      <div class="vendor-desc">Crochet Plushies, Wearables &amp; Accessories</div>
-      <div class="vendor-handle"><a href="https://www.instagram.com/buzzle.boutique" target="_blank">@buzzle.boutique</a></div>
+      <div class="vendor-name">Reillys Findings</div>
+      <div class="vendor-desc">Upcycled Handbags &amp; Crochet</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/reillyreilly4" target="_blank">@reillyreilly4</a></div>
     </div>
 
     <div class="vendor-card">
       <div class="vendor-name">The Violet Standard</div>
       <div class="vendor-desc">Permanent Jewelry</div>
-      <div class="vendor-handle"><a href="https://www.instagram.com/thevioletstandard" target="_blank">@thevioletstandard</a></div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/mimadrecandle512" target="_blank">@mimadrecandle512</a></div>
     </div>
 
     <div class="vendor-card">
-      <div class="vendor-name">777 Cafe</div>
-      <div class="vendor-desc">Matcha &amp; Baked Desserts</div>
-      <div class="vendor-handle"><a href="https://www.instagram.com/777_atx" target="_blank">@777_atx</a></div>
+      <div class="vendor-name">Pentastic by Claudia</div>
+      <div class="vendor-desc">Handmade Beaded Pens &amp; Kids Accessories</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/pentastic_by_claudia" target="_blank">@pentastic_by_claudia</a></div>
     </div>
 
     <div class="vendor-card">
-      <div class="vendor-name">Worlds Between Covers</div>
-      <div class="vendor-desc">Kids Toys &amp; Clothes</div>
-      <div class="vendor-handle"><a href="https://www.instagram.com/worldsbetweencovers" target="_blank">@worldsbetweencovers</a></div>
-    </div>
-
-    <div class="vendor-card">
-      <div class="vendor-name">Tritek Designs Handmade Accessories</div>
-      <div class="vendor-desc">Homemade Goods &amp; Accessories</div>
-      <div class="vendor-handle" style="color:#c8b89a;">No Instagram</div>
+      <div class="vendor-name">PhotoBoof</div>
+      <div class="vendor-desc">Dog Photo Booth</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/thephotoboof" target="_blank">@thephotoboof</a></div>
     </div>
 
     <div class="vendor-card">
@@ -417,15 +332,9 @@
     </div>
 
     <div class="vendor-card">
-      <div class="vendor-name">The Cravings Spot</div>
-      <div class="vendor-desc">Aguas Frescas</div>
-      <div class="vendor-handle"><a href="https://www.instagram.com/the_cravingsspot" target="_blank">@the_cravingsspot</a></div>
-    </div>
-
-    <div class="vendor-card">
-      <div class="vendor-name">Grounded Performance</div>
-      <div class="vendor-desc">Fitness Center</div>
-      <div class="vendor-handle"><a href="https://www.instagram.com/groundedperformanceatx" target="_blank">@groundedperformanceatx</a></div>
+      <div class="vendor-name">STYLX</div>
+      <div class="vendor-desc">Thrift Van</div>
+      <div class="vendor-handle"><a href="https://www.instagram.com/stylxco" target="_blank">@stylxco</a></div>
     </div>
 
   </div>
