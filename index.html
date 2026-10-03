@@ -257,106 +257,27 @@
     .divider {
       width: 56px; height: 3px;
       background: var(--gold);
-      margin: 1.2rem 0 2rem;
+      margin: 1.2rem auto 2rem;
     }
 
-    /* ─── About ─── */
-    #about { background: var(--cream); }
-
-    .about-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 2.5rem;
-      margin-top: 3rem;
-    }
-
-    .about-text {
-      max-width: 720px;
-    }
-
-    .about-text p {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: #4A3C28;
-      margin-bottom: 1.2rem;
-    }
-
-    .about-pillars {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.2rem;
-      align-items: stretch;
-      grid-auto-rows: 1fr;
-    }
-
-    .pillar {
-      background: var(--white);
-      border: 1px solid var(--tan);
-      border-top: 3px solid var(--green);
-      border-radius: 12px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .about-pillars .pillar {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-    }
-
-    .pillar-img {
-      position: absolute;
-      inset: 0;
-      background-size: cover;
-      background-position: center;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      border-radius: 12px;
-    }
-
-    .pillar-img::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(30, 50, 30, 0.45);
-      border-radius: 12px;
-    }
-
-    .pillar:hover .pillar-img {
-      opacity: 1;
-    }
-
-    .pillar-body {
-      padding: 1rem;
-      position: relative;
-      z-index: 1;
-      transition: color 0.4s ease;
-      text-align: left;
-    }
-
-    .pillar:hover .pillar-body h4 { color: var(--white); }
-    .pillar:hover .pillar-body p  { color: rgba(255,255,255,0.85); }
-
-    .pillar h4 {
-      font-family: var(--ff-display);
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--brown);
-      margin-bottom: 0.3rem;
-      transition: color 0.4s ease;
-    }
-
-    .pillar p {
-      font-size: 0.85rem;
-      line-height: 1.5;
-      color: #6B5A42;
-      transition: color 0.4s ease;
-    }
+    .section-label, .section-title { text-align: center; }
 
     /* ─── Dates ─── */
+    #dates { background: var(--cream); }
+
+    .dates-intro {
+      font-size: 1rem;
+      color: #4A3C28;
+      max-width: 620px;
+      line-height: 1.7;
+      margin: 0 auto 2.5rem;
+      text-align: center;
+    }
+
     .vendor-info-bar {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 1rem;
       flex-wrap: wrap;
       margin-bottom: 2.5rem;
@@ -366,88 +287,58 @@
       font-family: var(--ff-display);
       font-size: 1.3rem;
       font-weight: 700;
-      font-style: normal;
-      color: var(--white);
+      color: var(--brown);
       white-space: nowrap;
     }
 
-    .vendor-info-links {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      flex-wrap: wrap;
-    }
+    .vendor-info-links { display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap; }
 
     .vendor-info-link {
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
       font-family: var(--ff-body);
-      font-weight: 200;
+      font-weight: 700;
       font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: var(--white);
+      color: var(--brown);
       text-decoration: none;
       padding: 0.4rem 1rem;
-      border: 1.5px solid rgba(255,255,255,0.25);
+      border: 1.5px solid rgba(107,76,42,0.35);
       border-radius: 50px;
       transition: all 0.25s;
     }
 
     .vendor-info-link:hover {
-      background: rgba(255,255,255,0.1);
-      border-color: var(--gold);
-      color: var(--gold);
+      background: rgba(196,82,26,0.06);
+      border-color: var(--rust);
+      color: var(--rust);
       transform: translateY(-2px);
     }
 
-    #dates { background: var(--charcoal); }
-
-    #dates .section-label { color: var(--gold); }
-    #dates .section-title { color: var(--white); }
-    #dates .section-title em { color: var(--sage); }
-    #dates .divider { background: var(--rust); }
-
-    .dates-intro {
-      font-size: 1rem;
-      color: rgba(253,250,244,0.75);
-      max-width: 620px;
-      line-height: 1.7;
-      margin-bottom: 3rem;
-    }
-
     .dates-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 1.5rem;
     }
 
     .date-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-left: 4px solid var(--gold);
+      flex: 0 1 320px;
+      text-align: center;
+      background: var(--white);
+      border: 1px solid var(--tan);
+      border-left: 4px solid #C8824A;
       padding: 1.5rem;
       border-radius: 12px;
-      transition: background 0.25s, transform 0.25s;
+      transition: box-shadow 0.25s, transform 0.25s;
     }
 
     .date-card:hover {
-      background: rgba(255,255,255,0.09);
+      box-shadow: 0 8px 24px rgba(107,76,42,0.12);
       transform: translateY(-3px);
     }
-
-    .date-card.featured {
-      border-left-color: var(--rust);
-      background: rgba(196,82,26,0.1);
-    }
-
-    .date-card.mid {
-      border-left-color: #C8824A;
-      background: rgba(196,130,60,0.08);
-    }
-
-    .date-card.mid .date-day { color: #C8824A; }
 
     .date-tag {
       display: inline-block;
@@ -458,18 +349,15 @@
       padding: 0.2rem 0.6rem;
       border-radius: 50px;
       margin-bottom: 0.8rem;
+      background: rgba(196,130,60,0.15);
+      color: #9A5A22;
     }
-
-    .date-tag.opening    { background: rgba(212,168,67,0.2); color: var(--gold); }
-    .date-tag.summer     { background: rgba(122,158,126,0.2); color: var(--sage); }
-    .date-tag.midsummer  { background: rgba(196,130,60,0.2); color: #C8824A; }
-    .date-tag.holiday    { background: rgba(196,82,26,0.2); color: #E07A52; }
 
     .date-month {
       font-family: var(--ff-display);
       font-size: 1.5rem;
       font-weight: 900;
-      color: var(--white);
+      color: var(--charcoal);
       line-height: 1;
     }
 
@@ -477,33 +365,26 @@
       font-family: var(--ff-display);
       font-size: 3rem;
       font-weight: 900;
-      color: var(--gold);
+      color: #C8824A;
       line-height: 1;
       margin: 0.1rem 0;
     }
 
-    .date-card.featured .date-day { color: #E07A52; }
-
     .date-info {
       font-size: 0.85rem;
-      color: rgba(253,250,244,0.65);
+      color: #6B5A42;
       line-height: 1.5;
       margin-top: 0.5rem;
     }
 
-    .date-links {
-      display: flex;
-      gap: 0.8rem;
-      margin-top: 1.2rem;
-      flex-wrap: wrap;
-    }
+    .date-links { display: flex; gap: 0.8rem; margin-top: 1.2rem; flex-wrap: wrap; justify-content: center; }
 
     .date-link {
       font-size: 0.75rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      color: var(--gold);
+      color: var(--rust);
       text-decoration: none;
       display: flex;
       align-items: center;
@@ -511,45 +392,16 @@
       transition: color 0.2s;
     }
 
-    .date-link:hover { color: var(--white); }
+    .date-link:hover { color: var(--brown); }
     .date-link::after { content: '→'; }
 
-    .date-card.featured .date-link { color: #E07A52; }
-    .date-card.featured .date-link:hover { color: var(--white); }
-
-    .dates-cta-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 2rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .dates-cta-link {
-      display: inline-block;
-      font-family: var(--ff-body);
-      font-weight: 700;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--white);
-      text-decoration: none;
-      padding: 0.75rem 1.5rem;
-      border: 1.5px solid rgba(255,255,255,0.25);
-      border-radius: 4px;
-      transition: all 0.25s;
-    }
-
-    .dates-cta-link:hover {
-      background: rgba(255,255,255,0.1);
-      border-color: var(--gold);
-      color: var(--gold);
-      transform: translateY(-2px);
-    }
-
     /* ─── Info Strip ─── */
+    #visitors { background: var(--charcoal); }
+    #visitors .section-title { color: var(--white); }
+    #visitors .section-title em { color: var(--sage); }
+    #visitors .divider { background: var(--rust); }
+
     .info-strip {
-      margin-top: 3.5rem;
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.08);
       border-radius: 4px;
@@ -606,123 +458,34 @@
 
     #contact .section-title em { color: var(--rust); }
 
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 4rem;
-      margin-top: 3rem;
-      align-items: start;
-      max-width: 680px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .contact-info h3 {
-      font-family: var(--ff-display);
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--brown);
-      margin-bottom: 1rem;
-    }
-
-    .contact-item {
-      display: flex;
-      gap: 0.9rem;
-      align-items: flex-start;
-      margin-bottom: 1.4rem;
-    }
-
-    .contact-icon { font-size: 1.3rem; margin-top: 0.1rem; flex-shrink: 0; }
-
-    .contact-item-text {
-      font-size: 0.95rem;
-      line-height: 1.6;
+    .contact-copy {
+      background: rgba(107,76,42,0.06);
+      border: 1px solid rgba(107,76,42,0.25);
+      border-radius: 4px;
+      padding: 2rem 2.5rem;
+      font-size: 1.1rem;
+      line-height: 1.8;
       color: #4A3C28;
+      text-align: center;
     }
 
-    .contact-item-text strong {
-      display: block;
-      font-weight: 700;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--brown);
-      margin-bottom: 0.2rem;
-    }
-
-    .contact-item-text a { color: var(--rust); text-decoration: none; }
-    .contact-item-text a:hover { text-decoration: underline; }
-
-    .social-links { display: flex; gap: 0.8rem; margin-top: 1.5rem; }
-
-    .social-link {
+    .contact-handle {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      width: 40px; height: 40px;
-      background: var(--white);
-      color: var(--brown);
-      border-radius: 50%;
-      text-decoration: none;
-      transition: all 0.2s;
-      font-weight: 700;
-      font-size: 0.75rem;
-    }
-
-    .social-link:hover { background: var(--green); color: var(--white); transform: translateY(-2px); }
-
-    .contact-form {
-      background: var(--white);
-      padding: 2.5rem;
-      border-radius: 4px;
-      box-shadow: 0 4px 32px rgba(107,76,42,0.1);
-    }
-
-    .contact-form h3 {
+      gap: 0.6rem;
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      background: var(--rust);
+      color: var(--white);
       font-family: var(--ff-display);
-      font-size: 1.3rem;
+      font-size: 1.5rem;
       font-weight: 700;
-      color: var(--charcoal);
-      margin-bottom: 1.5rem;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.25s;
     }
 
-    .form-group { margin-bottom: 1.2rem; }
-
-    .form-group label {
-      display: block;
-      font-size: 0.72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--brown);
-      margin-bottom: 0.4rem;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      padding: 0.75rem 1rem;
-      font-family: var(--ff-body);
-      font-size: 0.95rem;
-      color: var(--charcoal);
-      background: var(--cream);
-      border: 1.5px solid var(--tan);
-      border-radius: 3px;
-      outline: none;
-      transition: border-color 0.2s;
-      appearance: none;
-    }
-
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus { border-color: var(--green); }
-
-    .form-group textarea { resize: vertical; min-height: 110px; }
-
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-
-    .contact-form .btn-primary { width: 100%; text-align: center; margin-top: 0.5rem; }
+    .contact-handle:hover { background: #a8420f; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(196,82,26,0.35); }
 
     /* ─── Footer ─── */
     footer {
@@ -771,6 +534,27 @@
     }
 
     .footer-nav a:hover { color: var(--gold); }
+
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-social a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px; height: 42px;
+      border: 1.5px solid rgba(253,250,244,0.3);
+      border-radius: 50%;
+      color: rgba(253,250,244,0.75);
+      transition: all 0.25s;
+    }
+
+    .footer-social a:hover { color: var(--gold); border-color: var(--gold); transform: translateY(-2px); }
+    .footer-social svg { width: 20px; height: 20px; fill: currentColor; }
 
     .footer-copy { font-size: 0.75rem; color: rgba(253,250,244,0.3); }
 
@@ -855,10 +639,6 @@
       .nav-links.open { display: flex; }
       .nav-links li a { display: block; padding: 0.9rem 2.5rem; border-bottom: 1px solid var(--tan); }
 
-      .about-grid { flex-direction: column; gap: 2rem; }
-      .about-pillars { grid-template-columns: 1fr 1fr; }
-      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .form-row { grid-template-columns: 1fr; }
       .info-strip { flex-direction: column; }
       .carousel-slide { flex: 0 0 100%; }
       .carousel-btn { border-radius: 50%; right: 12px; }
@@ -867,10 +647,10 @@
     @media (max-width: 480px) {
       nav { padding: 1rem 1.2rem; }
       section { padding: 4rem 1.2rem; }
-      .about-pillars { grid-template-columns: 1fr; }
       .hero-cta { flex-direction: column; align-items: center; }
-      .contact-form { padding: 1.5rem; }
     }
+.contact-link { color: var(--rust); font-weight: 700; text-decoration: none; }
+.contact-link:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -882,80 +662,24 @@
     <span></span><span></span><span></span>
   </button>
   <ul class="nav-links" id="nav-links">
-    <li><a href="#about">About</a></li>
     <li><a href="#dates">Market Dates</a></li>
     <li><a href="vendors.html" target="_blank">Vendors</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#visitors">Visitors</a></li>
+    <li><a href="#contact">Inquiries</a></li>
   </ul>
 </nav>
 
 <!-- ─── Hero ─── -->
 <section id="hero">
-  <span class="hero-badge">A Community Gathering Place</span>
+
   <h1 class="hero-title">Milwood<br><em>Market</em></h1>
   <p class="hero-tagline">
     <span>Local makers.</span> &nbsp;Local food.&nbsp; <span>Local fun.</span>
   </p>
-  <div class="hero-cta">
-    <a href="#dates" class="btn btn-primary">Current Market Dates</a>
+
 
   </div>
 </section>
-
-<!-- ─── About ─── -->
-<section id="about">
-  <div class="section-inner">
-    <p class="section-label">Our Story</p>
-    <h2 class="section-title">A market rooted in<br><em>community</em></h2>
-    <div class="divider"></div>
-
-    <div class="about-grid">
-      <div class="about-text">
-        <p>
-          Milwood Market was born from a simple idea: that neighbors deserve a place to gather, discover, and celebrate the incredible talent and craft right in their own backyard. We're a neighborhood market dedicated to showcasing local makers, food vendors, artisans, and small businesses.
-        </p>
-        <p>
-          Our vendors are creators and artisans from across the greater community — each bringing something unique and handcrafted to share. From hand-thrown pottery to freshly baked bread, from artisanal foods to handmade jewelry — everything here has a story, and every story is local.
-        </p>
-        <p>
-          We believe markets are more than shopping. They're where friendships start, where kids discover something new, and where makers find their audience. Come hungry, come curious, and come ready to connect.
-        </p>
-      </div>
-
-      
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── Carousel ─── -->
-<div id="carousel">
-  <div class="carousel-track-wrapper">
-    <div class="carousel-track" id="carouselTrack">
-      <div class="carousel-slide">
-      <img src="images/clover-coffee-truck.jpg" alt="Coffee truck with a menu">
-      </div>
-      <div class="carousel-slide">
-      <img src="images/crochet-plush-toys.jpg" alt="Crocheted plush toys on display">
-      </div>
-      <div class="carousel-slide">
-        <img src="images/street-performers.jpg" alt="Street performers playing instruments">
-      </div>
-      <div class="carousel-slide">
-        <img src="images/jewelry-beads.jpg" alt="Beaded jewelry on rack">
-      </div>
-      <div class="carousel-slide">
-        <img src="images/camper-photo-booth.jpg" alt="Vintage camper photo booth">
-      </div>
-      <div class="carousel-slide">
-        <img src="images/succulents.jpg" alt="Small succulents on a table">
-      </div>
-    </div>
-    <button class="carousel-btn" id="carouselNext" aria-label="Next slide">
-      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-    </button>
-  </div>
-</div>
 
 <!-- ─── Market Dates ─── -->
 <section id="dates">
@@ -978,18 +702,18 @@
 
     <div class="dates-grid">
 
-      <div class="date-card mid" data-date="2026-09-12">
-        <span class="date-tag midsummer">Fall</span>
+      <div class="date-card" data-date="2026-09-12">
+        <span class="date-tag">Fall</span>
         <div class="date-month">September</div>
         <div class="date-day">12</div>
         <div class="date-info">Saturday &nbsp;·&nbsp; 10 AM – 2 PM<br>Milwood Shopping Center</div>
         <div class="date-links">
-          <a href="vendor-list.html" target="_blank" class="date-link">Meet the Vendors</a>
+          <a href="vendor-application.html" target="_blank" class="date-link">Vendor Application</a>
         </div>
       </div>
 
-      <div class="date-card mid" data-date="2026-10-11">
-        <span class="date-tag midsummer">Fall</span>
+      <div class="date-card" data-date="2026-10-11">
+        <span class="date-tag">Fall</span>
         <div class="date-month">October</div>
         <div class="date-day">10</div>
         <div class="date-info">Saturday &nbsp;·&nbsp; 10 AM – 2 PM<br>Milwood Shopping Center</div>
@@ -998,27 +722,34 @@
         </div>
       </div>
 
-      <div class="date-card mid" data-date="2026-12-12">
-        <span class="date-tag midsummer">Holiday Market</span>
+      <div class="date-card" data-date="2026-12-12">
+        <span class="date-tag">Holiday Market</span>
         <div class="date-month">December</div>
         <div class="date-day">12</div>
         <div class="date-info">Saturday &nbsp;·&nbsp; 10 AM – 2 PM<br>Milwood Shopping Center</div>
         <div class="date-links">
-        </div>
+
       </div>
 
     </div>
+  </div>
+</section>
 
-    <!-- Visitor Info Strip -->
+<!-- ─── Visitor & Parking Information ─── -->
+<section id="visitors">
+  <div class="section-inner">
+    <h2 class="section-title">Visitor <em>guide</em></h2>
+    <div class="divider"></div>
+
     <div class="info-strip">
       <div style="flex: 2; min-width: 220px;">
-        <div class="info-strip-title">Visitor Information</div>
+        <div class="info-strip-title">Information</div>
         <p class="info-strip-text">
           Everyone is welcome at Milwood Market — admission is always free! Leashed pets, strollers, and wagons are welcome. A shaded seating area is available with picnic tables and a small playscape for the littles. We are located in the Milwood Shopping Center parking lot, adjacent to the community garden and Milwood Library. Come ready to enjoy handcrafted goods, fresh food, and more.
         </p><br>
-      <div class="info-strip-title">Parking</div>
+        <div class="info-strip-title">Parking</div>
         <p class="info-strip-text">
-          Parking inside the Milwood Shopping Center lot is reserved for tenants and tenant guests only and will be strictly enforced.<br><br>	
+          Parking inside the Milwood Shopping Center lot is reserved for tenants and tenant guests only and will be strictly enforced.<br><br>
 
 Market visitors may park on Adelphi Ln, which is just a short walk from the entrance.
 
@@ -1028,41 +759,20 @@ Please be mindful of posted parking signs, and do not block bike lanes, driveway
       <div class="info-strip-links">
         <a href="https://maps.google.com/?q=12400+Amherst+Drive,+Austin,+TX+78727" target="_blank" class="strip-link location-link" style="align-items: flex-start;"><span class="strip-link-icon">📍</span><span><span style="font-weight:700;">Milwood Shopping Center</span><br><span style="font-weight:400;">12400 Amherst Drive</span><br><span style="font-weight:400;">Austin, TX 78727</span></span></a>
         <div class="strip-link" style="cursor:default;"><span class="strip-link-icon">🕙</span> Market Hours: 10 am – 2 pm</div>
+      </div>
     </div>
-
   </div>
 </section>
 
+<!-- ─── Contact ─── -->
 <section id="contact">
   <div class="section-inner">
-    <p class="section-label">Get In Touch</p>
-    <h2 class="section-title">We'd love to<br><em>hear from you</em></h2>
+    <p class="section-label">Instagram</p>
+    <h2 class="section-title">Updates<br>&amp; <em>inquiries</em></h2>
     <div class="divider"></div>
 
-    <div class="contact-grid">
-      <form class="contact-form" action="https://formspree.io/f/xkoqjlkd" method="POST">
-        <h3>Send us a message</h3>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="fname">First Name</label>
-            <input type="text" id="fname" name="first_name" placeholder="Jane" required>
-          </div>
-          <div class="form-group">
-            <label for="lname">Last Name</label>
-            <input type="text" id="lname" name="last_name" placeholder="Smith" required>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" placeholder="jane@example.com" required>
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Tell us what's on your mind…"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Send Message</button>
-      </form>
-    </div>
+    <p class="contact-copy">Follow us on <a class="contact-link" href="https://www.instagram.com/milwoodmarket" target="_blank" rel="noopener">social media</a> for current market updates, vendor announcements and event information. <br>
+Send us a DM there for questions or inquiries.</p>
   </div>
 </section>
 
@@ -1071,14 +781,20 @@ Please be mindful of posted parking signs, and do not block bike lanes, driveway
   <div class="footer-logo">Milwood <em>Market</em></div>
   <p class="footer-tagline">Local makers &nbsp;·&nbsp; Local food &nbsp;·&nbsp; Local fun</p>
   <ul class="footer-nav">
-    <li><a href="#about">About</a></li>
-    <li style="color:rgba(253,250,244,0.3);">|</li>
     <li><a href="#dates">Market Dates</a></li>
     <li style="color:rgba(253,250,244,0.3);">|</li>
     <li><a href="vendors.html" target="_blank">Vendors</a></li>
     <li style="color:rgba(253,250,244,0.3);">|</li>
-    <li><a href="#dates">Visitors</a></li>
+    <li><a href="#visitors">Visitors</a></li>
   </ul>
+  <div class="footer-social">
+    <a href="https://www.instagram.com/milwoodmarket" target="_blank" rel="noopener" aria-label="Instagram @milwoodmarket">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 4 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7C8.3 24 8.7 24 12 24s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.9 1.4 1.4 0 0 0 0-2.9z"/></svg>
+    </a>
+    <a href="https://www.facebook.com/milwoodmarket" target="_blank" rel="noopener" aria-label="Facebook @milwoodmarket">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.5c-1.5 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+    </a>
+  </div>
   <p class="footer-copy">© 2026 Milwood Market. All rights reserved.</p>
 </footer>
 
